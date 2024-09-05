@@ -9,6 +9,7 @@ const {
 const {
   ProductDetailsController,
   RelatedProductsController,
+  getProducts,
 } = require("./controllers/productController");
 
 const app = express();
@@ -24,6 +25,7 @@ app
 
 app.get("/product-details/:id", ProductDetailsController);
 app.get("/related-products/:id", RelatedProductsController);
+app.get("/products",getProducts)
 
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
