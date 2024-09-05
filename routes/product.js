@@ -1,11 +1,11 @@
-import { Router } from "express";
-import {
+const { Router } = require("express");
+const {
   ProductDetailsController,
   RelatedProductsController,
-} from "../controllers/productController.js";
+} = require("../controllers/productController.js");
 const ProductsRoutes = Router();
 
 ProductsRoutes.get("/product-details/:id", ProductDetailsController);
 ProductsRoutes.get("/related-products/:id", RelatedProductsController);
 
-export default ProductsRoutes;
+module.exports = {ProductsRoutes};

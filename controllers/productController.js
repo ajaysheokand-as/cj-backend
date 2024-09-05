@@ -1,6 +1,6 @@
-import Product from "../model/Product.js";
+const Product = require("../models/product");
 
-export const ProductDetailsController = async (req, res) => {
+ const ProductDetailsController = async (req, res) => {
   try {
     const { id } = req?.params; //Pass product id here which details you want
     const response = await Product.find({ _id: id });
@@ -25,7 +25,7 @@ export const ProductDetailsController = async (req, res) => {
   }
 };
 
-export const RelatedProductsController = async (req, res) => {
+ const RelatedProductsController = async (req, res) => {
   try {
     const { id } = req?.params; //Pass product id of product details page
     const currentProduct = await Product.find({ _id: id });
@@ -45,3 +45,6 @@ export const RelatedProductsController = async (req, res) => {
     });
   }
 };
+
+module.exports = { ProductDetailsController, RelatedProductsController};
+

@@ -6,7 +6,10 @@ const {
   getItem,
   removeItem,
 } = require("./controllers/cartController");
-const ProductsRoutes = require("./routes/product.js");
+const {
+  ProductDetailsController,
+  RelatedProductsController,
+} = require("./controllers/productController");
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -19,7 +22,8 @@ app
   .get("/cart", getItem)
   .delete("/cart/:id", removeItem);
 
-app.use("/", ProductsRoutes); //products route
+app.get("/product-details/:id", ProductDetailsController);
+app.get("/related-products/:id", RelatedProductsController);
 
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
