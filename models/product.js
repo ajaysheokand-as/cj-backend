@@ -3,51 +3,21 @@ const mongoose = require("mongoose");
 const { Schema, model, models } = mongoose;
 
 const ProductSchema = new Schema({
-  name: {
-    type: String,
-  },
-  price: {
-    type: String,
-  },
-  image: {
-    type: String,
-  },
-  oldPrice: {
-    type: String,
-  },
-  category: {
-    type: String,
-  },
-  size: {
-    type: String,
-  },
-  qty: {
-    type: String,
-  },
-  ratings: {
-    type: String,
-  },
-  brand: {
-    type: String,
-  },
-  specification: {
-    type: String,
-  },
-  ingredients: {
-    type: String,
-  },
-  description_label: {
-    type: String,
-  },
-  description_content: {
-    type: String,
-  },
-  oils: {
-    type: String,
-  },
-  fragrance: {
-    type: String,
-  },
+  name: String,
+  price: String,
+  image: String,
+  oldPrice: String,
+  category: String,
+  size: String,
+  qty: String,
+  ratings: String,
+  brand: String,
+  specification: String,
+  ingredients: String,
+  description_label: String,
+  description_content: String,
+  oils: String,
+  fragrance: String,
 });
 
 const Product = mongoose.model('Products', ProductSchema);

@@ -1,4 +1,5 @@
 const Products = require('../models/product')
+
 const getProducts = async (req, res) => {
   try {
     const response = await Products.find();
@@ -19,6 +20,31 @@ const getProducts = async (req, res) => {
     res.json({
       status: 400,
       message: "Error in fetching product details!",
+    });
+  }
+};
+
+const addProduct = async (req, res) => {
+  console.log("Req.body", req.body);
+  try {
+    const response = await Products.create(req.body);
+    console.log("Response",response)
+    if (response) {
+      res.json({
+        data: response,
+        status: 201,
+        message: "Product added successfully",
+      });
+    } else {
+      res.json({
+        status: 200,
+        message: "Opps, Error",
+      });
+    }
+  } catch (error) {
+    res.json({
+      status: 400,
+      message: "Error",
     });
   }
 };
@@ -69,5 +95,5 @@ const getProducts = async (req, res) => {
   }
 };
 
-module.exports = { ProductDetailsController, RelatedProductsController,getProducts};
+module.exports = { ProductDetailsController, RelatedProductsController,getProducts,addProduct};
 
