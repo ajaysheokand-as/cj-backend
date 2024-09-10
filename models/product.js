@@ -18,6 +18,7 @@ const ProductSchema = new Schema({
   description_content: String,
   oils: String,
   fragrance: String,
+  addedAt: {type:Date, default: Date.now}
 });
 
 const Product = mongoose.model('Products', ProductSchema);

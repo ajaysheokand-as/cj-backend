@@ -17,7 +17,7 @@ const addItem = async (req, res) => {
 
 const getItem = async (req, res) => {
   try {
-    const result = await Cart.find();
+    const result = await Cart.find().sort({addedAt: -1});
     console.log("result", result);
     res.status(200).json({success: true, message: "Data fetched Successfully", data: result});
   } catch (error) {

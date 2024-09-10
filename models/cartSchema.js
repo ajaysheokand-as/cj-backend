@@ -9,7 +9,9 @@ const cartSchema = new mongoose.Schema({
   qty:Number,
   brand:String,
   rating: String,
-  img:String
+  img:String,
+  addedAt: {type:Date, default: Date.now}
+
 });
 
 const Cart = mongoose.model('Cart', cartSchema);
